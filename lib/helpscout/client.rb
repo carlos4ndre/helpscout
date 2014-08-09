@@ -825,10 +825,9 @@ module HelpScout
     #  Name   Type
     #  items  Array  Collection of Customer objects.
 
-    def customers(limit=0, firstName=nil, lastName=nil, email=nil)
+    def customers(limit=0, page=1, firstName=nil, lastName=nil, email=nil)
       url = "/customers.json"
 
-      page = 1
       options = {}
 
       if limit < 0
@@ -869,7 +868,7 @@ module HelpScout
 
     # Helper method to find customers by email
     def customers_by_email(email)
-      customers(0, nil, nil, email)
+      customers(0, 1, nil, nil, email)
     end
 
     # Create Customer
