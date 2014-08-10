@@ -566,10 +566,9 @@ module HelpScout
     CONVERSATION_FILTER_STATUS_ALL = "all"
     CONVERSATION_FILTER_STATUS_PENDING = "pending"
 
-    def conversations(mailboxId, status, limit=0, modifiedSince)
+    def conversations(mailboxId, status, limit=0, page=1, modifiedSince)
       url = "/mailboxes/#{mailboxId}/conversations.json"
 
-      page = 1
       options = {}
 
       if limit < 0
