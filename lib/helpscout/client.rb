@@ -151,7 +151,6 @@ module HelpScout
 
       begin
         response = Client.get(request_url.chomp("&"), {:basic_auth => auth})
-	print response.inspect
       rescue SocketError => se
         raise StandardError, se.message
       end
