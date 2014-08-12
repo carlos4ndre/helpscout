@@ -150,7 +150,8 @@ module HelpScout
       end
 
       begin
-        response = Client.get(request_url, {:basic_auth => auth})
+        response = Client.get(request_url.chomp("&"), {:basic_auth => auth})
+	print response.inspect
       rescue SocketError => se
         raise StandardError, se.message
       end
@@ -853,10 +854,9 @@ module HelpScout
         items.each do |item|
           customers << Customer.new(item)
         end
-        page = page + 1
       rescue StandardError => e
         puts "Request failed: #{e.message}"
-      end while items && items.count > 0 && (limit == 0 || customers.count < limit)
+      end 
 
       if limit > 0 && customers.count > limit
         customers = customers[0..limit-1]
