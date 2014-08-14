@@ -648,7 +648,7 @@ module HelpScout
     #                via the Get Conversation call.
 
     def conversations_by_customer(mailboxId, customerId, status, limit=0, page=1, modifiedSince)
-      url = "/mailboxes/#{mailboxId}}/customers/{customerId}/conversations.json"
+      url = "/mailboxes/#{mailboxId}/customers/#{customerId}/conversations.json"
 
       options = {}
 
